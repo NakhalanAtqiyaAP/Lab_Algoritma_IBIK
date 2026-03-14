@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
-int main() {
-    cout << "CPP Easy Snippet" << endl;
+
+int main()
+{
+    
     return 0;
 }
