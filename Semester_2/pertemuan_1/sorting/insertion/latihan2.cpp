@@ -37,7 +37,7 @@ int main()
     
     insertionSort(arr, n);
 
-    cout<<"\nSesusdah sorting\n";
+    cout<<"\nSesudah sorting\n";
     for (int i = 0; i < n; i++)
     {
         cout<<arr[i]<<" ";

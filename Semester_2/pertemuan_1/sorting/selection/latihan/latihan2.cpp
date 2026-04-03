@@ -4,21 +4,21 @@ using namespace std;
 void selectionSort(int arr[], int n)
 {
 
-for (int i = 0; i < n-1; i++)           //
+for (int i = 0; i < n-1; i++)           //Mencari posisi yang akan diisi dengan nilai terkecil
 {
-   int min = i;
+   int min = i;                         //Mencari nilai terkecil
 
-   for (int j = i+1; j < n; j++)
+   for (int j = i+1; j < n; j++)        // Loop mencari minimum, kenapa dimulai dari i+1? karena bagian kiri sudah dianggap terurut
    {
-    if (arr[j] < arr[min])
+    if (arr[j] < arr[min])              //kondisi mencari minimum
     {
-        min = j;
+        min = j;                        //Masukan nilai yang minimum ke variable min
     }
     
    }
 
-   //swap
-   int temp = arr[i];
+   //swap nilai minimum degan nilai posisi
+   int temp = arr[i];               
    arr[i] = arr[min];
    arr[min] = temp;
    
