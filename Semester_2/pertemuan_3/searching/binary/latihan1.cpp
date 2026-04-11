@@ -15,13 +15,15 @@ int binarySeacrh(int arr[], int left, int right, int target){
         return binarySeacrh(arr, mid + 1, right, target);
         
     }
+    return -1;
 }
 
 int main()
 {
-    int n;
-    int arr[n] = {1,23,4,54,6,5,43,5};
 
-    cout<<binarySeacrh(arr, n);
+    int arr[8] = {1,2,4,5,6,7,8,9};
+    
+
+    cout<<"Target ada di indeks ke-"<<binarySeacrh(arr, 0, 7, 9);
     return 0;
 }
