@@ -5,6 +5,10 @@ class Hewan {
     public :
     int berat;
     string jenisKelamin;
+
+    void berlari (){
+        cout<<"Sedang berlari"<<endl;
+    }
 };
 
 int main()
@@ -19,6 +23,9 @@ int main()
     binatang2->berat = 20;
     cout<<"Berat hewan 2 adalah "<<binatang2->berat<<endl;
 
+    // * Fungsi berlari
+    binatang1.berlari();
+    binatang2->berlari();
 
     return 0;
 }
