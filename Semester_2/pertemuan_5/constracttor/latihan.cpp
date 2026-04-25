@@ -55,9 +55,13 @@ int main()
     cout<<"NPM"<<mahasiswa1->npm<<endl;
     cout<<"GPA"<<mahasiswa1->gpa<<endl;
 
+    //* Inisialisasi Jurusan
     Jurusan *jurusan = new Jurusan();
-    jurusan->namaJurusan = "TI";
+    jurusan->namaJurusan = "TI";            
+
+    //* Hubungkan Mahasiswa dengan Jurusan
     mahasiswa1->setJurusan(jurusan);
+
     cout<<"Jurusan :"<<mahasiswa1->getJurusan()->namaJurusan;
 
     return 0;
