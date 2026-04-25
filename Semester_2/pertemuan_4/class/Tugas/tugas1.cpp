@@ -37,6 +37,7 @@ int main()
     Handphone *handphone1 = new Handphone();
 
     handphone1->setBrand("Samsung");
+    cout<< handphone1->getBrand()<<endl;
     handphone1->setHarga(500000);
     cout<< handphone1->getHarga();
     return 0;
