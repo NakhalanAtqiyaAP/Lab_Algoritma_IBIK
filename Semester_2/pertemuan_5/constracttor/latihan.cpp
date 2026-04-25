@@ -1,14 +1,22 @@
 #include <iostream>
 using namespace std;
 
+class Jurusan{
+    public:
+    string namaJurusan;
+};
+
 class Mahasiswa{
     private:
     
 
+
     public:
-        string nama;
-        int npm;
-        float gpa;
+    string nama;
+    int npm;
+    float gpa;
+    Jurusan *jurusan;
+        
         // ! Constractor
         // * Fungsinya untuk deklarasi awal variabel
         Mahasiswa(string nama, int npm, float gpa) {
@@ -16,10 +24,19 @@ class Mahasiswa{
             this->npm = npm;
             this->gpa = gpa;
         }
-        // ! Destructor
-        ~Mahasiswa(){               
-            cout<<"Mahasiswa kena DO";
+
+        void setJurusan(Jurusan *jurusan){
+             this->jurusan = jurusan;
         }
+
+        Jurusan* getJurusan(){
+            return jurusan;
+        }
+
+        // ! Destructor
+        // ~Mahasiswa(){               
+        //     cout<<"Mahasiswa kena DO";
+        // }
 };
 
 int main()
@@ -35,7 +52,13 @@ int main()
     
     Mahasiswa *mahasiswa1 = new Mahasiswa("Nakhalan", 2523123, 21.2);
     cout<<"Nama"<<mahasiswa1->nama<<endl;
-    cout<<"Nama"<<mahasiswa1->npm<<endl;
-    cout<<"Nama"<<mahasiswa1->gpa<<endl;
+    cout<<"NPM"<<mahasiswa1->npm<<endl;
+    cout<<"GPA"<<mahasiswa1->gpa<<endl;
+
+    Jurusan *jurusan = new Jurusan();
+    jurusan->namaJurusan = "TI";
+    mahasiswa1->setJurusan(jurusan);
+    cout<<"Jurusan :"<<mahasiswa1->getJurusan()->namaJurusan;
+
     return 0;
 }
