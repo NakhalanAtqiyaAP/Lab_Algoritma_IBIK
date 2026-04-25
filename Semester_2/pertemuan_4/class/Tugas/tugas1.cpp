@@ -5,6 +5,14 @@ class Electronic{
     protected:
         int harga;
         string warna;
+    public:
+    void setHarga(int harga){
+        this->harga= harga;
+    }
+
+    int getHarga(){
+        return this->harga;
+    }
 };
 
 class Handphone : public Electronic{
@@ -26,6 +34,10 @@ class Handphone : public Electronic{
 
 int main()
 {
-    
+    Handphone *handphone1 = new Handphone();
+
+    handphone1->setBrand("Samsung");
+    handphone1->setHarga(500000);
+    cout<< handphone1->getHarga();
     return 0;
 }
