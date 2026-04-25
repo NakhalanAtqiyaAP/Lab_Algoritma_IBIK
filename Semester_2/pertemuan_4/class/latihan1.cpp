@@ -18,8 +18,8 @@ int main()
     binatang1.berat = 30;
     cout<<"Berat hewan 1 adalah "<<binatang1.berat<<endl;
 
-    // * cara deklarasi object - cara ke-2 (pakai asteris)
-    Hewan *binatang2 = new Hewan();     // ! disini dia akan membuat sebuah object baru dengan class Hewan akan ber orentiasi ke Bintanag2
+    // * cara deklarasi object - cara ke-2 (pakai pointer)
+    Hewan *binatang2 = new Hewan();     // ! disini dia akan membuat sebuah object baru dengan class Hewan akan ber orentiasi ke Bintanag2. memakai panah karena pointer
     binatang2->berat = 20;
     cout<<"Berat hewan 2 adalah "<<binatang2->berat<<endl;
 
