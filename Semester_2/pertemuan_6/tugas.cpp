@@ -102,6 +102,35 @@ class EBook : public Buku {
     string lisensiAkses;
     string genre;
 
+    public:
+    void setFormatFile(string formatFile){
+        this->formatFile = formatFile;
+    }
+    string getFormatFile(){
+        return this->formatFile;
+    }
+
+    void setUkuranFile(int ukuranFile){
+        this->ukuranFile = ukuranFile;
+    }
+    int getUkuranFile(){
+        return this->ukuranFile;
+    }
+
+    void setLinsensiAkses(string lisensiAkses){
+        this->lisensiAkses = lisensiAkses;
+    }
+    string getLisensiAkses(){
+        return this->lisensiAkses;
+    }
+
+    void setGenre(string genre){
+        this->genre = genre;
+    }
+    string getGenre(){
+        return this->genre;
+    }
+
 };
 
 
