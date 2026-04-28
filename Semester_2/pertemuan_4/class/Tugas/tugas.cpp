@@ -45,7 +45,7 @@ class Buku {
     }
 
     void cekKetebalan(){
-        cout<<"Ketebalan buku :"
+        cout<<"Ketebalan buku :";
         if (getJumHalaman() > 300)
         {
             cout<<"Buku tebal";
