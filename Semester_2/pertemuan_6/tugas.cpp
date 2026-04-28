@@ -57,6 +57,54 @@ class Buku {
 
 };
 
+class BukuPelajaran :public Buku{
+    private:
+    string mataPelajaran;
+    string jenjangPendidikan;
+    int kelas;
+    string kurikulum;
+    public:
+    void setMataPelajaran(string mataPelajaran){
+        this->mataPelajaran = mataPelajaran;
+    }
+    string getMataPelajaran(){
+        return this->mataPelajaran;
+    }
+
+    void setJenjangPendidikan(string jenjangPendidikan){
+        this->jenjangPendidikan = jenjangPendidikan;
+    }
+    string getJenjangPendidikan(){
+        return this->jenjangPendidikan;
+    }
+
+    void setKelas(int kelas){
+        this->kelas = kelas;
+    }
+    int getKelas(){
+        return this->kelas;
+    }
+
+    void setKurikulum(string kurikulum){
+        this->kurikulum = kurikulum;
+    }
+    string getKurikulum(){
+        return this->kurikulum;
+    }
+
+
+};
+
+class EBook : public Buku {
+    private:
+    string formatFile;
+    int ukuranFile;
+    string lisensiAkses;
+    string genre;
+
+};
+
+
 int main()
 {
 
