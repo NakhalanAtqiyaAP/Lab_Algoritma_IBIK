@@ -50,7 +50,7 @@ int main()
 
     //* Memakai setter dan getter dari kelas parent
     handphone1->setHarga(500000);
-    cout<< handphone1->getHarga()<<endl;
+    cout<< handphone1->getHarga()<<endl;-
 
     handphone1->Charge();
     return 0;
