@@ -96,7 +96,7 @@ class EBook : public Buku {
     void dataBuku(){
         if(akses == true){
         Buku::dataBuku();
-        
+
         cout<<"Edisi E-Book :"<<endl;
         cout<<"Format file  :"<<formatFile<<endl;
         cout<<"Ukuran file  :"<<ukuranFile<<endl;
@@ -134,44 +134,8 @@ int main()
     int n,m;
 
     cout<<"--- Selamat Datang Di Perpustakaan ---"<<endl;
-    cout<<"Masukan jumlah data buku yang ingin di input:"<<endl;
-    cin>>n;
-    cin.ignore();
-
-    Buku *buku = new Buku[n];
-
-    for (int i = 0; i < n; i++)
-    {
-        string namaBuku,author,penerbit;
-        int bab,halaman;
-        
-       cout<<"Masukan nama buku :";
-       getline(cin, namaBuku);
-       buku[i].setNamaBuku(namaBuku);
-
-        cout<<"Masukan nama Author :";
-       getline(cin, author);
-       buku[i].setAuthor(author);
-
-       cout<<"Masukan nama penerbit :";
-       getline(cin, penerbit);
-       buku[i].setPenerbit(penerbit);
-
-       cout<<"Masukan jumlah halaman :";
-       cin>>halaman;
-       buku[i].setJumHalaman(halaman);
-
-       cout<<"Masukan jumlah bab :";
-       cin>>bab;
-       buku[i].setJumBab(bab);
-    }
-    
-    buku->dataBuku();
-    buku->cekKetebalan();
-
     cout<<"----------------------------------------------------------"<<endl<<endl;
     cout<<"=== E-Book ==="<<endl;
-
     cout<<"Masukan jumlah data buku yang ingin di input:"<<endl;
     cin>>m;
     cin.ignore();
@@ -180,14 +144,34 @@ int main()
 
     for (int i = 0; i < m; i++)
     {
-        string formatFile,genre,lisensiAkses;
-        int ukuranFile;
-        
+        string nama, auth, pen, formatFile, genre, lisensiAkses;
+        int bab, hal, ukuranFile;
+        cout << "\n--- Data E-Book ke-" << i + 1 << " ---" << endl;
+        cout << "Masukan nama buku     : "; 
+        getline(cin, nama);   
+        ebook[i].setNamaBuku(nama);
+
+        cout << "Masukan nama Author   : "; 
+        getline(cin, auth);   
+        ebook[i].setAuthor(auth);
+        cout << "Masukan nama penerbit : "; 
+        getline(cin, pen);    
+        ebook[i].setPenerbit(pen);
+
+        cout << "Masukan jumlah halaman: "; 
+        cin >> hal;           
+        ebook[i].setJumHalaman(hal);
+
+        cout << "Masukan jumlah bab    : "; 
+        cin >> bab;           
+        ebook[i].setJumBab(bab);
+        cin.ignore();
+
        cout<<"Masukan format file :";
        getline(cin, formatFile);
        ebook[i].setFormatFile(formatFile);
-
-        cout<<"Masukan ukuran file :";
+       
+       cout<<"Masukan ukuran file :";
        cin>>ukuranFile;
        ebook[i].setUkuranFile(ukuranFile);
        cin.ignore();
@@ -200,10 +184,16 @@ int main()
        getline(cin, lisensiAkses);
        ebook[i].setLinsensiAkses(lisensiAkses);
 
+       ebook[i].cekUkuranFile();
     }
-    ebook->cekUkuranFile();
-    ebook->aksesEbook();
-    ebook->dataEBook();
+    
+    cout << "\n=== DAFTAR E-BOOK PERPUSTAKAAN ===" << endl;
+    for (int i = 0; i < m; i++) {
+        cout << "\nE-Book Ke-" << i  << endl;
+        ebook[i].aksesEbook(); 
+        ebook[i].dataBuku();   
+        cout << "--------------------------" << endl;
+    }
 
     return 0;
 }
