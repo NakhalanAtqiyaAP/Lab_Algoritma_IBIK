@@ -56,45 +56,6 @@ class Buku {
     }
 
 };
-
-class BukuPelajaran :public Buku{
-    private:
-    string mataPelajaran;
-    string jenjangPendidikan;
-    int kelas;
-    string kurikulum;
-    public:
-    void setMataPelajaran(string mataPelajaran){
-        this->mataPelajaran = mataPelajaran;
-    }
-    string getMataPelajaran(){
-        return this->mataPelajaran;
-    }
-
-    void setJenjangPendidikan(string jenjangPendidikan){
-        this->jenjangPendidikan = jenjangPendidikan;
-    }
-    string getJenjangPendidikan(){
-        return this->jenjangPendidikan;
-    }
-
-    void setKelas(int kelas){
-        this->kelas = kelas;
-    }
-    int getKelas(){
-        return this->kelas;
-    }
-
-    void setKurikulum(string kurikulum){
-        this->kurikulum = kurikulum;
-    }
-    string getKurikulum(){
-        return this->kurikulum;
-    }
-
-
-};
-
 class EBook : public Buku {
     private:
     string formatFile;
@@ -103,6 +64,7 @@ class EBook : public Buku {
     string genre;
 
     public:
+    bool akses = false;
     void setFormatFile(string formatFile){
         this->formatFile = formatFile;
     }
@@ -131,13 +93,42 @@ class EBook : public Buku {
         return this->genre;
     }
 
+    void dataEBook(){
+        cout<<"Nama buku "<<getNamaBuku()<<" dengan mempunyai jumlah "<<getJumHalaman()<<" dan "<<getBab()<<" BAB."<<" Di buat oleh "<<getAuthor()<<" dan di terbitkan oleh "<<getPenerbit()<<"."<<endl;
+        cout<<"Edisi E-Book :"<<endl;
+        cout<<"Format file  :"<<formatFile<<endl;
+        cout<<"Ukuran file  :"<<ukuranFile<<endl;
+        cout<<"Genre        :"<<genre<<endl;
+        cout<<"Lisensi akses:"<<lisensiAkses<<endl;
+    }
+
+    void cekUkuranFile(){
+        if (ukuranFile > 200)
+        {
+            cout<<"Peringatan!"<<endl;
+            cout<<"Ukuran terlalu besar lebih dari 200 mb"<<endl;
+        }else{
+            akses = true;
+        }
+        
+    }
+
+    void akses(){
+        if (akses == true)
+        {
+        cout<<"akses diterima"<<endl;
+        }else{
+            cout<<"Akses ditolak"<<endl;
+        }
+        
+    }
 };
 
 
 int main()
 {
 
-    int n;
+    int n,m;
 
     cout<<"--- Selamat Datang Di Perpustakaan ---"<<endl;
     cout<<"Masukan jumlah data buku yang ingin di input:"<<endl;
@@ -174,6 +165,38 @@ int main()
     
     buku->dataBuku();
     buku->cekKetebalan();
+
+    cout<<"----------------------------------------------------------"<<endl<<endl;
+    cout<<"=== E-Book ==="<<endl;
+
+    cout<<"Masukan jumlah data buku yang ingin di input:"<<endl;
+    cin>>m;
+    cin.ignore();
+
+     EBook *ebook = new EBook[m];
+
+    for (int i = 0; i < n; i++)
+    {
+        string formatFile,genre,lisensiAkses;
+        int ukuranFile;
+        
+       cout<<"Masukan format file :";
+       getline(cin, formatFile);
+       ebook[i].setFormatFile(formatFile);
+
+        cout<<"Masukan ukuran file :";
+       cin>>ukuranFile;
+       ebook[i].setUkuranFile(ukuranFile);
+
+       cout<<"Masukan genre :";
+       getline(cin, genre);
+       ebook[i].setGenre(genre);
+
+       cout<<"Masukan lisensi akses :";
+       getline(cin, lisensiAkses);
+       ebook[i].setLinsensiAkses(lisensiAkses);
+
+    }
 
     return 0;
 }
