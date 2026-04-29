@@ -93,13 +93,17 @@ class EBook : public Buku {
         return this->genre;
     }
 
-    void dataEBook(){
-        cout<<"Nama buku "<<getNamaBuku()<<" dengan mempunyai jumlah "<<getJumHalaman()<<" dan "<<getBab()<<" BAB."<<" Di buat oleh "<<getAuthor()<<" dan di terbitkan oleh "<<getPenerbit()<<"."<<endl;
+    void dataBuku(){
+        if(akses == true){
+        Buku::dataBuku();
+        
         cout<<"Edisi E-Book :"<<endl;
         cout<<"Format file  :"<<formatFile<<endl;
         cout<<"Ukuran file  :"<<ukuranFile<<endl;
         cout<<"Genre        :"<<genre<<endl;
         cout<<"Lisensi akses:"<<lisensiAkses<<endl;
+        }
+        
     }
 
     void cekUkuranFile(){
@@ -113,14 +117,13 @@ class EBook : public Buku {
         
     }
 
-    void akses(){
+    void aksesEbook(){
         if (akses == true)
         {
         cout<<"akses diterima"<<endl;
         }else{
             cout<<"Akses ditolak"<<endl;
         }
-        
     }
 };
 
@@ -175,7 +178,7 @@ int main()
 
      EBook *ebook = new EBook[m];
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
     {
         string formatFile,genre,lisensiAkses;
         int ukuranFile;
@@ -187,6 +190,7 @@ int main()
         cout<<"Masukan ukuran file :";
        cin>>ukuranFile;
        ebook[i].setUkuranFile(ukuranFile);
+       cin.ignore();
 
        cout<<"Masukan genre :";
        getline(cin, genre);
@@ -197,6 +201,9 @@ int main()
        ebook[i].setLinsensiAkses(lisensiAkses);
 
     }
+    ebook->cekUkuranFile();
+    ebook->aksesEbook();
+    ebook->dataEBook();
 
     return 0;
 }
