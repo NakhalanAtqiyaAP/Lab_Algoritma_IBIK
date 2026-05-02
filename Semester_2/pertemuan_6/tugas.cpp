@@ -41,7 +41,10 @@ class Buku {
     }
 
     void dataBuku(){
-        cout<<"Nama buku "<<getNamaBuku()<<" dengan mempunyai jumlah "<<getJumHalaman()<<" dan "<<getBab()<<" BAB."<<" Di buat oleh "<<getAuthor()<<" dan di terbitkan oleh "<<getPenerbit()<<"."<<endl;
+        cout<<"Nama buku "<<getNamaBuku()<<
+        " dengan mempunyai jumlah "<<getJumHalaman()<<
+        " dan "<<getBab()<<" BAB."<<" Di buat oleh "<<getAuthor()<<
+        " dan di terbitkan oleh "<<getPenerbit()<<"."<<endl;
     }
 
     void cekKetebalan(){
