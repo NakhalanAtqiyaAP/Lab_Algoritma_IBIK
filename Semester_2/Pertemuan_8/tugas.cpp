@@ -1,114 +1,77 @@
-
 #include <iostream>
 using namespace std;
 
-const int MAX = 100;
+struct node {
+	int data;
+	node* next;
+};
 
-class Queue {
+class queue {
 	private:
-		int rear;
-		int front;
-		int arr[MAX];
-		int count;
+		node* front;
+		node* rear;
 		
 	public:
-		Queue() {
-			front = 0;
-			rear = MAX - 1;
-			count = 0;
+		queue() {
+			front = NULL;
+			rear = NULL;
 		}
 		
-		void enqueue(int x) {
-			if (count >= MAX) {
-				cout << "Queue is full" << endl;
+		void enqueue (int data) {
+			node* new_node = new node();
+			new_node->data = data;
+			new_node->next = NULL;
+			
+			if (rear == NULL) {
+				front = new_node;
+				rear = new_node;
 				return;
 			}
-			rear = (rear + 1) % MAX;
-			arr[rear] = x;
-			count++;
+			
+			rear->next = new_node;
+			rear = new_node;
 		}
 		
-		int dequeue() {
-			if (isEmpty()) {
-				cout << "Antrian kosong" << endl;
+		void dequeue() {
+			if(front == NULL) {
+				cout << "Queue is empty" << endl;
+				return;
+			}
+			
+			node* temp = front;
+			front = front->next;
+			
+			if (front == NULL) 
+				rear = NULL;
+				
+			delete temp;
+		}
+		
+		int front_element() {
+			if (front == NULL) {
+				cout << "Queue is empty" << endl;
 				return -1;
 			}
-			int x = arr[front];
-            front = (front + 1) % MAX;
-            count--;
-            return x;
+			return front->data;
 		}
 		
-		int peek()
-        {
-            if (isEmpty())
-            {
-                cout << "Antrian kosong." << endl;
-                return -1;
-            }
-            return arr[front];
-        }
-
-        int size()
-        {
-            return count;
-        }
-
-        bool isEmpty()
-        {
-            return count == 0;
-        }
-
-        bool isFull()
-        {
-            return count == MAX;
-        }
-        int getFront() {
-        	return front;
-		}
-		int getRear() {
-			return rear;
-		}
-		int getArray(int index) {
-			return arr[index];
+		bool is_empty() {
+			return (front == NULL);
 		}
 };
 
-int main() {
-	Queue* queue = new Queue();
-//	queue->enqueue(30);
-//	queue->enqueue(14);
-//	queue->enqueue(20);
-//	
-//	cout << "Ukuran queue: " << queue->size() << endl;
-//	cout << "Dequeue paling depan: " << queue->dequeue() << endl;
-//	cout << "Ukuran queue setelah di dequeue: " << queue->size() << endl;
+int main ()
+{
+	queue q;
 	
-	// cara pake cin ke queue
-	int user_input = -1;
-	do {
-		cout << "Program Sederhana Queue" << endl << endl;
-		cout << "(0) Exit" << endl;
-		cout << "(1) Enqueue" << endl;
-		cout << "(2) Dequeue" << endl;
-		cout << "(3) Lihat Antrian" << endl;
-		cin >> user_input;
-		
-		if (user_input == 1) {
-			int angka;
-			cout << "Masukkan angka: ";
-			cin >> angka;
-			queue->enqueue(angka);
-		}
-		else if (user_input == 2) {
-			cout << "Angka yang di dequeue: " << queue->dequeue() << endl;
-		}
-		else if (user_input == 3) {
-			for (int i = queue->getFront(); i <= queue->getRear(); i++) {
-				cout << queue->getArray(i) << ' ';
-			}
-			cout << endl;
-		}
-	} while (user_input != 0);
+	q.enqueue(1);
+	q.enqueue(4);
+	q.enqueue(9);
+	
+	cout << "Front element is " << q.front_element() << endl;
+	q.dequeue();
+	cout << "Front element is " << q.front_element() << endl;
+	q.dequeue();
+	
 	return 0;
 }
