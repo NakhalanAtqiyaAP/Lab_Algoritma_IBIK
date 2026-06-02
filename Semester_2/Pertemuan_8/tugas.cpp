@@ -47,17 +47,17 @@ class queue {
 			delete temp;
 		}
 		
-		string front_element() {
-			if (front == NULL) {
-				cout << "Queue is empty" << endl;
-				return 0;
-			}
-			return front->data;
-		}
+		// string front_element() {
+		// 	if (front == NULL) {
+		// 		cout << "Queue is empty" << endl;
+		// 		return 0;
+		// 	}
+		// 	return front->data;
+		// }
 		
-		bool is_empty() {
-			return (front == NULL);
-		}
+		// bool is_empty() {
+		// 	return (front == NULL);
+		// }
 };
 
 int main ()
@@ -68,15 +68,17 @@ int main ()
 	// q.enqueue(4);
 	// q.enqueue(9);
 
-     q.enqueue("www");
-      q.enqueue("LLL");
-       q.enqueue("AAA");
+    //  q.enqueue("www");
+    //   q.enqueue("LLL");
+    //    q.enqueue("AAA");
 
 	
-	cout << "Front element is " << q.front_element() << endl;
-	q.dequeue();
-	cout << "Front element is " << q.front_element() << endl;
-	q.dequeue();
+	// cout << "Front element is " << q.front_element() << endl;
+	// q.dequeue();
+	// cout << "Front element is " << q.front_element() << endl;
+	// q.dequeue();
+
+    
 	
 	return 0;
 }
