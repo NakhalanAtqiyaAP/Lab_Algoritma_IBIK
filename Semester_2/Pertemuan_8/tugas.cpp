@@ -113,7 +113,14 @@ int main ()
             q.enqueue(nama);
         }
         else if(user_input == 2){
-            cout<<"Peserta yang sudah masuk antrian :"<<q.dequeue()<<endl;
+			if (q.is_empty())
+			{
+				cout<<"Tidak ada yang antri"<<endl;
+			}else{
+				cout<<"Peserta yang sudah masuk antrian :"<<q.dequeue()<<endl;
+			}
+			
+            
         }
         else if(user_input == 3){
             q.display();
