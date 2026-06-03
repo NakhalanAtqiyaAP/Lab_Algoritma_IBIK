@@ -16,6 +16,7 @@ class queue {
 		queue() {
 			front = NULL;
 			rear = NULL;
+			count = 1;
 		}
 		
 		void enqueue (string data) {
@@ -35,7 +36,7 @@ class queue {
 		}
 		
 		string dequeue() {
-			if(front == NULL) {
+			if(is_empty()) {
 				cout << "Queue is empty" << endl;
 				return "";
 			}
@@ -43,7 +44,7 @@ class queue {
 			node* temp = front;
 			front = front->next;
 			
-			if (front == NULL) 
+			if (is_empty()) 
 				rear = NULL;
 				
 			delete temp;
@@ -52,7 +53,7 @@ class queue {
 		}
 
 		string front_element() {
-			if (front == NULL) {
+			if (is_empty()) {
 				cout << "Queue is empty" << endl;
 				return 0;
 			}
@@ -73,11 +74,13 @@ class queue {
 				return;
 			}
             node* current = front;
+			cout<<"-----------------------"<<endl;
             while(current != NULL){
-                cout<<current->data<<endl;
+                cout<<"- "<<current->data<<endl;
                 current = current->next;
             }
-			cout<<"Total peserta :"<<size();
+			cout<<"Peserta paling pertama :"<<front_element()<<endl;
+			cout<<"Total peserta :"<<size()<<endl;
         }
 
 };
@@ -86,16 +89,19 @@ int main ()
 {
 	queue q;
     int user_input;
+	cout<<"-----------------------"<<endl;
     cout<<"Selamat Datang Di Program Sederhana Antrian"<<endl<<endl;
     
     do
     {
-      
+      cout<<"-----------------------"<<endl;
         cout<<"Silakan Pilih Perintah :"<<endl;
         cout<<"(1) Enqueue"<<endl;
         cout<<"(2) Desqueue"<<endl;
         cout<<"(3) Menampilkan Antrian"<<endl;
         cout<<"(0) Exit"<<endl;
+		cout<<"-----------------------"<<endl;
+		cout<<"Silakan masukan inputan :";
         cin>>user_input;
         cin.ignore();
 
