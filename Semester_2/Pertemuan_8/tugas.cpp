@@ -10,6 +10,7 @@ class queue {
 	private:
 		node* front;
 		node* rear;
+		int count;
 		
 	public:
 		queue() {
@@ -30,6 +31,7 @@ class queue {
 			
 			rear->next = new_node;
 			rear = new_node;
+			count++;
 		}
 		
 		string dequeue() {
@@ -45,7 +47,24 @@ class queue {
 				rear = NULL;
 				
 			delete temp;
+			count--;
             return result;
+		}
+
+		string front_element() {
+			if (front == NULL) {
+				cout << "Queue is empty" << endl;
+				return 0;
+			}
+			return front->data;
+		}
+		
+		bool is_empty() {
+			return (front == NULL);
+		}
+
+		int size(){
+			return count;
 		}
 
         void display(){
@@ -58,31 +77,20 @@ class queue {
                 cout<<current->data<<endl;
                 current = current->next;
             }
+			cout<<"Total peserta :"<<size();
         }
 
-        
-		
-		// string front_element() {
-		// 	if (front == NULL) {
-		// 		cout << "Queue is empty" << endl;
-		// 		return 0;
-		// 	}
-		// 	return front->data;
-		// }
-		
-		// bool is_empty() {
-		// 	return (front == NULL);
-		// }
 };
 
 int main ()
 {
 	queue q;
     int user_input;
-
+    cout<<"Selamat Datang Di Program Sederhana Antrian"<<endl<<endl;
+    
     do
     {
-        cout<<"Selamat Datang Di Program Sederhana Antrian"<<endl<<endl;
+      
         cout<<"Silakan Pilih Perintah :"<<endl;
         cout<<"(1) Enqueue"<<endl;
         cout<<"(2) Desqueue"<<endl;
