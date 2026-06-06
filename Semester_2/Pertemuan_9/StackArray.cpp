@@ -46,11 +46,12 @@ class Stack{
         return stack[top];
     }
 
-    int size(){
+    int Size()
+    {
         return size;
     }
 
-    int is_empty(){
+    bool is_empty(){
         return size <= 0;
     }
 };
@@ -69,6 +70,11 @@ int main()
 
     cout<<"Isi dari stack:"<<endl;
     stack->printStack();
-    
+
+    stack->pop();
+     cout<<"Elemen teratas dari stack:"<<stack->peek()<<endl;
+
+
+
     return 0;
 }
