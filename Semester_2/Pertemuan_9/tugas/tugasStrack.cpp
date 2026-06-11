@@ -16,30 +16,38 @@ class Stack{
     }
 
     void Insert(int data){
+    if (IsFull())
+        {
+            cout<<"Data sudah penuh";
+            return;
+        }
+        
         top++;
         stack[top] = data;
         size++;
     }
     int Pop(){
-        IsEmpty();
+        if (IsEmpty())
+        {
+            cout<<"Data Kosong";
+            return -1;
+        }
         int value = stack[top];
         top--;
         size--;
         return value;
     }
 
-    int IsEmpty(){
-        if (size >= MAX)
-        {
-           cout<<"Data kosong";
-           return -1;
-        }
-        
+    int IsFull(){
+       return size >= MAX;
     }
 
+    bool IsEmpty(){
+        return size <= 0;
+    }
     void Print(){
         cout<<"Isi dari stack:";
-        for (int i = 0; i < top; i++)
+        for (int i = 0; i <= top; i++)
         {
             cout<<stack[i]<<' ';
         }

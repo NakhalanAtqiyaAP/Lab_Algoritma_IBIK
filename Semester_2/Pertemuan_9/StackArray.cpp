@@ -65,7 +65,7 @@ int main()
     cout<<"Elemen teratas dari stack:"<<stack->peek()<<endl;
 
 
-    stack->insert(120);
+    stack->insert(127);
     cout<<"Elemen teratas dari stack:"<<stack->peek()<<endl;
 
     cout<<"Isi dari stack:"<<endl;
