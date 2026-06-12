@@ -81,7 +81,7 @@ int main()
     stack->Insert(124); 
 
     stack->Print();
-
+    cout <<"\nSetelah di Pop"<<endl;
     stack->Pop();
     stack->Print();
     
