@@ -69,6 +69,9 @@ class LinkedListDouble
             
             node->prev = target;
             temp->prev = node;
+
+            node->next = temp;
+            target->next= temp;
         }
         length++;
         
@@ -116,8 +119,8 @@ class LinkedListDouble
 
     void PrintNodesBackwards(){
         Node* node = tail;
-        while (node != NULL)
         cout<<"Dari belakang ke depan : ";
+        while (node != NULL)
         {
             cout<<node->data<<' ';
             node= node->prev;
