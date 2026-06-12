@@ -15,6 +15,14 @@ class Stack{
         top = -1;
     }
 
+    int IsFull(){
+       return size >= MAX;
+    }
+
+    bool IsEmpty(){
+        return size <= 0;
+    }
+
     void Insert(int data){
     if (IsFull())
         {
@@ -37,14 +45,7 @@ class Stack{
         size--;
         return value;
     }
-
-    int IsFull(){
-       return size >= MAX;
-    }
-
-    bool IsEmpty(){
-        return size <= 0;
-    }
+    
     void Print(){
         cout<<"Isi dari stack:";
         for (int i = 0; i <= top; i++)
@@ -79,6 +80,9 @@ int main()
 
     stack->Insert(124); 
 
+    stack->Print();
+
+    stack->Pop();
     stack->Print();
     
     return 0;
