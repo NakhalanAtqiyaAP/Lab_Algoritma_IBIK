@@ -135,5 +135,8 @@ int main()
     linklist->Push(10);
     linklist->Push(33);
     linklist->Push(33);
+
+    linklist->PrintNodesFrontwards();
+    linklist->PrintNodesBackwards();
     return 0;
 }
