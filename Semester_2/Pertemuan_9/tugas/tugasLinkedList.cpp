@@ -18,7 +18,7 @@ class LinkedListDouble
     LinkedListDouble(){
         head=NULL;
         tail=NULL;
-        length=NULL;
+        length=0;
     }
 
     void Push(int data){
@@ -41,7 +41,7 @@ class LinkedListDouble
     }
 
     void Insert(int data, int position){
-        if (position < 0 && position > length)
+        if (position < 0 || position > length)
         {
             cout<<"Insert diluar batas linked list"<<endl;
             return;
@@ -56,7 +56,7 @@ class LinkedListDouble
             node->next = head;
             head= node;
         }else if(position == length){
-            node-> next = NULL;\
+            node-> next = NULL;
             node->prev = tail;
             tail = node;
         }else{
@@ -66,12 +66,15 @@ class LinkedListDouble
                 target = target ->next;
             }
             Node* temp = target->next;
-            
+            target->next = node;
+            node->next = temp;
+
             node->prev = target;
+            
             temp->prev = node;
 
-            node->next = temp;
-            target->next= temp;
+            
+          
         }
         length++;
         
