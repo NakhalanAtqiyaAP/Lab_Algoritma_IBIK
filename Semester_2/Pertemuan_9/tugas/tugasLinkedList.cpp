@@ -104,6 +104,7 @@ class LinkedListDouble
 
     void PrintNodesFrontwards(){
         Node* node = head;
+        cout<<"Dari depan ke belakang :";
         while (node != NULL)
         {
             cout<<node->data<<' ';
@@ -116,6 +117,7 @@ class LinkedListDouble
     void PrintNodesBackwards(){
         Node* node = tail;
         while (node != NULL)
+        cout<<"Dari belakang ke depan : ";
         {
             cout<<node->data<<' ';
             node= node->prev;
@@ -138,5 +140,14 @@ int main()
 
     linklist->PrintNodesFrontwards();
     linklist->PrintNodesBackwards();
+
+    cout<<endl;
+    cout<<"setelah ada data insert:"<<endl;
+
+    linklist->Insert(20, 3);
+
+    linklist->PrintNodesFrontwards();
+    linklist->PrintNodesBackwards();
+
     return 0;
 }
