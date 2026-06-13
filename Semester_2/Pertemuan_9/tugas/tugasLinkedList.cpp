@@ -124,7 +124,7 @@ class LinkedListDouble
         Node* node = tail;
         cout<<"Dari belakang ke depan : ";
         while (node != NULL)
-        {
+        { 
             cout<<node->data<<' ';
             node= node->prev;
         }
