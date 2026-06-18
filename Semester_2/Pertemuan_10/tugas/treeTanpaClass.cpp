@@ -14,16 +14,6 @@ struct Node
    }
 };
 
-Node* Insert(Node* node, int value){
-    if (node == NULL)
-    {
-      node = new Node(value);
-    }else if(value <= node->data){
-        node->left = Insert(node->left, value);
-    }else{
-        node->right = Insert(node->right, value);
-    }
-}
 
     void PreOrder(Node* node){
         if(node == NULL) return;
@@ -48,33 +38,35 @@ Node* Insert(Node* node, int value){
 
 int main()
 {
-    Node* root = NULL;
-    root = Insert(root, 7);
-    root = Insert(root, 14);
-    root = Insert(root, 91);
-    root = Insert(root, 102);
-    root = Insert(root, 31);
-    root = Insert(root, 87);
-    root = Insert(root, 93);
-    root = Insert(root, 24);
-    root = Insert(root, 76);
-    root = Insert(root, 83);
-    root = Insert(root, 192);
-    root = Insert(root, 932);
-    root = Insert(root, 153);
-    root = Insert(root, 772);
-    root = Insert(root, 812);
+    Node* node = new Node(17);
+
+    node->left = new Node(14);
+    node->left->left = new Node(91);
+    node->left->right = new Node(102);
+    node->left->right->left = new Node(31); 
+    node->left->right->right =new Node(87);
+    node->left->right->left->left = new Node(93);
+    node->left->right->left->left->left = new Node(24);
+    node->left->right->left->left->right =new Node(76);
+
+    node->right =new Node(83);
+    node->right->left = new Node(192);
+    node->right->right = new Node(932); 
+    node->right->right = new Node(153); 
+    node->right->right->left = new Node(772); 
+    node->right->right->right = new Node(812); 
+
 
     cout<<"PreOrder :";
-    PreOrder(root);
+    PreOrder(node);
     cout<<endl;
 
     cout<<"InOrder:";
-    InOrder(root);
+    InOrder(node);
     cout<<endl;
 
     cout<<"PostOrder :";
-    PostOrder(root);
+    PostOrder(node);
     cout<<endl;
     return 0;
 }
