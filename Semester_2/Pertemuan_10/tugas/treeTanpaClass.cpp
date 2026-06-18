@@ -67,11 +67,14 @@ int main()
 
     cout<<"PreOrder :";
     PreOrder(root);
+    cout<<endl;
 
     cout<<"InOrder:";
     InOrder(root);
+    cout<<endl;
 
     cout<<"PostOrder :";
     PostOrder(root);
+    cout<<endl;
     return 0;
 }
