@@ -65,6 +65,13 @@ int main()
     root = Insert(root, 772);
     root = Insert(root, 812);
 
+    cout<<"PreOrder :";
     PreOrder(root);
+
+    cout<<"InOrder:";
+    InOrder(root);
+
+    cout<<"PostOrder :";
+    PostOrder(root);
     return 0;
 }
