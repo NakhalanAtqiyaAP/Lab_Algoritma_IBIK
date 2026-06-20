@@ -56,7 +56,7 @@ int main() {
     g.addEdge(1, 2);
     g.addEdge(2, 3);
     g.addEdge(3, 1);
-    g.removeEdge(1, 2);
+    // g.removeEdge(1, 2);
 
     cout << "Adjacency Matrix:\n";
     g.display();
