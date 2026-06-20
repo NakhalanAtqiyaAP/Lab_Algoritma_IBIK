@@ -1,4 +1,5 @@
- #include <iostream>
+// ! Vertex fungsinya untuk menambahkan koneksi antara graph
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -8,13 +9,16 @@ class Graph {
     vector<vector<int> > adj; 
 
 	public:
+    //1. Membuat 5 vertex
+    //2. Fungsi addEdge untuk menambahkan atau mengkoneksikan edge dengan vertex
+
 	    Graph(int vertices, bool is__directed = false) {
 	        V = vertices;
 	        is_directed = is__directed;
 	        adj.resize(V);
 	    }
 	
-	    // Add an edge to an undirected graph
+	    // Menambahkan hubungan antara vertex(hubungan antara ketertetanggan)
 	    void addEdge(int u, int v) {
 	        adj[u].push_back(v);
 	        if (!is_directed) {
@@ -34,7 +38,7 @@ class Graph {
 };
 
 int main() {
-    // Create a graph with 5 vertices (0 to 4)
+    // Membuat graph, disini vertexnya ada 5(dimulai dari 0 karena index)
     Graph g(5, false);
 
     // Add edges
