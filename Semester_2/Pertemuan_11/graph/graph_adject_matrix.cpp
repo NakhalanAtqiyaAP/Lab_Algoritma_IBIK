@@ -49,7 +49,7 @@ class Graph {
 
 int main() {
     // Create an undirected graph with 4 vertices (0 to 3)
-    Graph g(4, false);
+    Graph g(4, true);
 
     g.addEdge(0, 1);
     g.addEdge(0, 2);
