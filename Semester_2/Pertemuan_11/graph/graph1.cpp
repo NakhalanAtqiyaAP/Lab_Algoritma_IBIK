@@ -5,7 +5,7 @@ using namespace std;
 
 class Graph {
     int V; 
-    bool is_directed;   //dua arah bulak balik
+    bool is_directed;   //dua arah bulak balik(jika false)/satu arah(jika true)
     vector<vector<int> > adj; 
 
 	public:
