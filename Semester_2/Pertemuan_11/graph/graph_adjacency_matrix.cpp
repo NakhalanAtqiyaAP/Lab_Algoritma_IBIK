@@ -6,7 +6,7 @@ class Graph {
 	private:
 	    int numVertices;
 	    vector<vector<int> > adjMatrix;
-	    bool isDirected;
+	    bool isDirected;                            // true(satu arah)/ false(dua arah)
 	
 	public:
 	    // Initialize matrix with 0 (no edges)
