@@ -29,16 +29,16 @@ struct Node
         InOrder(node->right);
     }
 
-      void PostOrder(Node* node){
-        if(node == NULL) return;
-        PostOrder(node->left);
-        PostOrder(node->right);
-        cout<<node->data<<" ";
-    }
+        void PostOrder(Node* node){
+            if(node == NULL) return;
+            PostOrder(node->left);
+            PostOrder(node->right);
+            cout<<node->data<<" ";
+        }
 
 int main()
 {
-    Node* node = new Node(17);
+    Node* node = new Node(7);
 
     node->left = new Node(14);
     node->left->left = new Node(91);
