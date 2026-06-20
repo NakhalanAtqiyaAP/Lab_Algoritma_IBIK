@@ -10,7 +10,7 @@ class Graph {
 	
 	public:
 	    // Initialize matrix with 0 (no edges)
-	    Graph(int vertices, bool directed = false) {
+	    Graph(int vertices, bool directed = false) {                        // awal deklarasi semua kotak di isi dengan 0
 	        numVertices = vertices;
 	        isDirected = directed;
 	        adjMatrix.resize(vertices, vector<int>(vertices, 0));
@@ -18,8 +18,8 @@ class Graph {
 	
 	    // Add an edge between vertex u and v
 	    void addEdge(int u, int v, int weight = 1) {
-	        if (u >= 0 && u < numVertices && v >= 0 && v < numVertices) {
-	            adjMatrix[u][v] = weight;
+	        if (u >= 0 && u < numVertices && v >= 0 && v < numVertices) {   //validasi agar nilai tidak melewati batas
+	            adjMatrix[u][v] = weight;                                   //parameter u dan v dimasukan dari weight -> karena tidak memasukan weight jadi defaultnya adalah 1 
 	            if (!isDirected) {
 	                adjMatrix[v][u] = weight; 
 	            }
