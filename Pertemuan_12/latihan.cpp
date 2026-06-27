@@ -15,6 +15,8 @@ void dijkstra(int start){
     {
        dist[i] = INF;
        dist[start] = 0;
+
+    //    priority_queue<pair<int,int>, vector<pair>>
         
     //    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int, int>>  pq;    }
     }
