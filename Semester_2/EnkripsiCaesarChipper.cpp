@@ -9,28 +9,25 @@ private:
 
 public:
     CaesarCipher(string msg, int k) {
-        message = msg;  
-        key = k % 26;   // jumlah key disimpan agar tidak melewati batas jumlah alphabet(26 huruf)
+        message = msg;
+        key = k % 26;
     }
 
     string encrypt(string text, int current_key) {
         string result = "";
-        current_key = current_key % 26; 
+        current_key = current_key % 26;
 
-        for (int i = 0; i < text.length(); i++) { // pengulangan pengecekan per-karakter
-            char characters = text[i];  // karakter masuk ke array
+        for (int i = 0; i < text.length(); i++) {
+            char characters = text[i];
 
-            if (isupper(characters)) { // kondisi jika huruf merupakan kapital
-                result += char((characters - 'A' + current_key) % 26 + 'A');   
-                // character - 'A' dia mngubah huruf menjadi angka semetara, lalu ditambah variable current_key artinya dia maju sebanyak jumlah variable tersebut
-                // % 26 + 'A' mengubah kembali dari angka menjadi huruf dimana posisi aplhabet terbaru dari penumlahan karakter dengan current_key
+            if (isupper(characters)) {
+                result += char((characters - 'A' + current_key) % 26 + 'A');
             }
-            else if (islower(characters)) { // kondisi jika huruf merupakan huruf kecil
+            else if (islower(characters)) {
                 result += char((characters - 'a' + current_key) % 26 + 'a');
-                // ini juga sama kondisinya dengan yang atas, rumusnya sama. Yang membedakan dia mengambil jenis ASCII karakter huruf kecil
             }
-            else {  // kondisi jika bukan huruf (angka dan simbol)
-                result += characters; // langsung jadi karakter tersebut
+            else {
+                result += characters;
             }
         }
         return result;
@@ -56,7 +53,7 @@ int main()
     cout << "masukan key: ";
     cin >> keyInput;
 
-    CaesarCipher cipher(messageInput, keyInput);    // dikirim ke constructor
+    CaesarCipher cipher(messageInput, keyInput);   
 
     string result = cipher.encrypt(cipher.getMessage(), cipher.getKey());   //fungsi mengambil dari getter
     cout << "Hasil : " << result;
